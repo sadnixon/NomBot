@@ -74,7 +74,6 @@ gameInfo.on('error', (error) => {
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMembers,
     GatewayIntentBits.DirectMessages,
   ],
 
