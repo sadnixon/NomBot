@@ -27,7 +27,7 @@ async function execute(interaction, user) {
 
   playerList = playerList.filter((e) => e !== targetUser);
 
-  await playerList.set('playerList', playerList);
+  await gameInfo.set('playerList', playerList);
 
   await interaction.editReply({
     content: `The player is removed. The order is:\n${playerList.map((e, i) => `${i + 1}. <@${e}>`).join('\n')}`,

@@ -16,7 +16,7 @@ async function execute(interaction, user) {
     });
   }
 
-  await playerList.set('playerList', []);
+  await gameInfo.set('playerList', []);
 
   await interaction.editReply({
     content: `The player list is cleared.`,
