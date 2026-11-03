@@ -22,6 +22,10 @@ async function execute(interaction, user) {
       value: 'This unvotes for a player who is on the block',
     },
     {
+      name: '/nomstate',
+      value: 'This shows the state of the nominations and votes from your perspective',
+    },
+    {
       name: '/info',
       value: 'Show this help message.',
     },

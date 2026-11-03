@@ -126,6 +126,10 @@ async function initializeData() {
     await gameInfo.set('gameState', {});
   }
 
+  if (!(await gameInfo.has('playerList'))) {
+    await gameInfo.set('playerList', []);
+  }
+
   if (!(await gameInfo.has('nomsOpen'))) {
     await gameInfo.set('nomsOpen', false);
   }

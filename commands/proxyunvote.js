@@ -8,7 +8,7 @@ const {
 const _ = require('lodash');
 
 const data = new SlashCommandBuilder()
-  .setName('unvote')
+  .setName('proxyunvote')
   .setDescription('Unvote for a player to be eliminated')
   .addUserOption((option) =>
     option
@@ -36,9 +36,15 @@ async function execute(interaction, user) {
 
   const nomsOpen = await gameInfo.get('nomsOpen');
   const gameState = await gameInfo.get('gameState');
+  const playerList = await gameInfo.get('playerList');
   const targetUser = interaction.options.getUser(`target`).id;
 
-  if (!nomsOpen || !gameState.noms.map((e) => e.target).includes(targetUser)) {
+  if (
+    !nomsOpen ||
+    !playerList.includes(userId) ||
+    !playerList.includes(targetUser) ||
+    !gameState.noms.map((e) => e.target).includes(targetUser)
+  ) {
     return interaction.editReply({
       content: `You can't do this unvote!`,
       ephemeral: true,

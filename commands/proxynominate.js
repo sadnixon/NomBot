@@ -36,10 +36,13 @@ async function execute(interaction, user) {
 
   const nomsOpen = await gameInfo.get('nomsOpen');
   const gameState = await gameInfo.get('gameState');
+  const playerList = await gameInfo.get('playerList');
   const targetUser = interaction.options.getUser(`nomination`).id;
 
   if (
     !nomsOpen ||
+    !playerList.includes(userId) ||
+    !playerList.includes(targetUser) ||
     gameState.noms.map((e) => e.id).includes(userId) ||
     gameState.noms.map((e) => e.target).includes(targetUser)
   ) {
