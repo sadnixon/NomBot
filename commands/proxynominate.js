@@ -55,7 +55,7 @@ async function execute(interaction, user) {
   gameState.noms.push({
     id: userId,
     target: targetUser,
-    voters: [userId],
+    voters: [],
   });
 
   await gameInfo.set('gameState', gameState);
