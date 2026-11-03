@@ -4,7 +4,6 @@ const {
   PermissionFlagsBits,
 } = require('discord.js');
 const _ = require('lodash');
-const { clearTasks, scheduleInXHours, cancelTask } = require('./scheduler');
 const { generateCombination } = require('gfycat-style-urls');
 
 const errorMessage = (message) => {

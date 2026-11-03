@@ -143,10 +143,6 @@ client.once(Events.ClientReady, async (readyClient) => {
       type: ActivityType.Watching,
     });
 
-    initializeTaskHandlers(client);
-
-    await startScheduler();
-
     console.log(`Ready! Logged in as ${readyClient.user.tag}`);
   } catch (error) {
     console.error('Failed to initialize bot:', error);
