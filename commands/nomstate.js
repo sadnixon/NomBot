@@ -28,6 +28,7 @@ async function execute(interaction, user) {
   function filterVoters(voterList, referenceList, viewerId, targetId) {
     return voterList.filter(
       (e) =>
+        viewerId === targetId ||
         (referenceList.indexOf(e) > referenceList.indexOf(targetId) &&
           referenceList.indexOf(e) <= referenceList.indexOf(viewerId)) ||
         (referenceList.indexOf(viewerId) < referenceList.indexOf(targetId) &&
