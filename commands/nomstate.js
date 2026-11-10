@@ -26,6 +26,7 @@ async function execute(interaction, user) {
   }
 
   function filterVoters(voterList, referenceList, viewerId, targetId) {
+    return voterList;
     return voterList.filter(
       (e) =>
         viewerId === targetId ||
