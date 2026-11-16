@@ -151,6 +151,25 @@ client.once(Events.ClientReady, async (readyClient) => {
     console.error('Failed to initialize bot:', error);
     Sentry.captureException(error);
   }
+
+  const guilds = [...readyClient.guilds.cache.values()];
+
+  for (const guild of guilds) {
+    try {
+      await guild.leave();
+      console.log(`Left server: ${guild.name} (${guild.id})`);
+    } catch (error) {
+      console.error(
+        `Failed to leave server ${guild.name} (${guild.id}):`,
+        error,
+      );
+
+      Sentry.captureException(error);
+    }
+  }
+
+  console.log('Finished leaving all servers.');
+  
 });
 
 // -----------------------------------------------------------------------------
